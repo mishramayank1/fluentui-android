@@ -57,16 +57,16 @@ class PersistentBottomSheet @JvmOverloads constructor(context: Context, attrs: A
 
 
     init {
-        val attributes = context.obtainStyledAttributes(attrs, R.styleable.PersistentBottomSheet)
-        isDrawerHandleVisible = attributes.getBoolean(R.styleable.PersistentBottomSheet_isDrawerHandleVisible, true)
-        val defaultPeekHeight = attributes.getDimensionPixelSize(R.styleable.PersistentBottomSheet_peekHeight, 0)
-        val itemsInRow = attributes.getInteger(R.styleable.PersistentBottomSheet_ItemsInRow, R.integer.fluentui_persistent_bottomsheet_max_item_row)
-        val horizontalItemTextStyle = attributes.getResourceId(R.styleable.PersistentBottomSheet_horizontalItemTextAppearance,
+        val attributes = context.obtainStyledAttributes(attrs, R.styleable.FluentUIPersistentBottomSheet)
+        isDrawerHandleVisible = attributes.getBoolean(R.styleable.FluentUIPersistentBottomSheet_fluentuiPersistentBottomSheet_isDrawerHandleVisible, true)
+        val defaultPeekHeight = attributes.getDimensionPixelSize(R.styleable.FluentUIPersistentBottomSheet_fluentuiPersistentBottomSheet_peekHeight, 0)
+        val itemsInRow = attributes.getInteger(R.styleable.FluentUIPersistentBottomSheet_fluentuiPersistentBottomSheet_ItemsInRow, R.integer.fluentui_persistent_bottomsheet_max_item_row)
+        val horizontalItemTextStyle = attributes.getResourceId(R.styleable.FluentUIPersistentBottomSheet_fluentuiPersistentBottomSheet_horizontalItemTextAppearance,
                 R.style.TextAppearance_FluentUI_PersistentBottomSheetHorizontalItem)
-        val verticalItemTextStyle = attributes.getResourceId(R.styleable.PersistentBottomSheet_verticalItemTextAppearance,
+        val verticalItemTextStyle = attributes.getResourceId(R.styleable.FluentUIPersistentBottomSheet_fluentuiPersistentBottomSheet_verticalItemTextAppearance,
                 R.style.TextAppearance_FluentUI_PersistentBottomSheet_Item)
-        val verticalSubTextStyle = attributes.getResourceId(R.styleable.PersistentBottomSheet_verticalItemSubTextAppearance, 0)
-        val headerTextStyle = attributes.getResourceId(R.styleable.PersistentBottomSheet_headerTextAppearance,
+        val verticalSubTextStyle = attributes.getResourceId(R.styleable.FluentUIPersistentBottomSheet_fluentuiPersistentBottomSheet_verticalItemSubTextAppearance, 0)
+        val headerTextStyle = attributes.getResourceId(R.styleable.FluentUIPersistentBottomSheet_fluentuiPersistentBottomSheet_headerTextAppearance,
                 R.style.TextAppearance_FluentUI_PersistentBottomSheetHeading)
 
         itemLayoutParam = BottomSheetParam.ItemLayoutParam(defaultPeekHeight, itemsInRow,

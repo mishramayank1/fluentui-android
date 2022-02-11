@@ -30,8 +30,8 @@ internal class DrawerView(context: Context, attrs: AttributeSet) : LinearLayoutC
         val a: TypedArray = context.obtainStyledAttributes(attrs, R.styleable.SheetBehaviorLayout)
         behaviorType = BehaviorType.valueOf(a.getString(R.styleable.SheetBehaviorLayout_behaviorType)
                 ?: "BOTTOM")
-        val drawerTypedArray = context.obtainStyledAttributes(attrs, R.styleable.DrawerView)
-        cornerRadius = drawerTypedArray.getDimension(R.styleable.DrawerView_cornerRadius, resources.getDimension(R.dimen.fluentui_drawer_corner_radius))
+        val drawerTypedArray = context.obtainStyledAttributes(attrs, R.styleable.FluentUIDrawerView)
+        cornerRadius = drawerTypedArray.getDimension(R.styleable.FluentUIDrawerView_fluentuiDrawerView_cornerRadius, resources.getDimension(R.dimen.fluentui_drawer_corner_radius))
         drawerTypedArray.recycle()
         a.recycle()
     }

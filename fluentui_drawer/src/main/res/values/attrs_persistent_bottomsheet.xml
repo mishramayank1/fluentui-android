@@ -4,20 +4,20 @@
   -->
 
 <resources>
-    <declare-styleable name="PersistentBottomSheet">
+    <declare-styleable name="FluentUIPersistentBottomSheet">
         <!-- The min height of the BottomSheet -->
-        <attr name="peekHeight" format="dimension" />
+        <attr name="fluentuiPersistentBottomSheet_peekHeight" format="dimension" />
         <!--  Determines whether to keep the default drawer handle or not -->
-        <attr name="isDrawerHandleVisible" format="boolean" />
+        <attr name="fluentuiPersistentBottomSheet_isDrawerHandleVisible" format="boolean" />
         <!--  horizontal Item in a row-->
-        <attr name="ItemsInRow" format="integer" />
+        <attr name="fluentuiPersistentBottomSheet_ItemsInRow" format="integer" />
         <!-- horizontal item text style-->
-        <attr name="horizontalItemTextAppearance" format="reference" />
+        <attr name="fluentuiPersistentBottomSheet_horizontalItemTextAppearance" format="reference" />
         <!-- vertical item text style-->
-        <attr name="verticalItemTextAppearance" format="reference" />
+        <attr name="fluentuiPersistentBottomSheet_verticalItemTextAppearance" format="reference" />
         <!-- vertical item subtitle style-->
-        <attr name="verticalItemSubTextAppearance" format="reference" />
+        <attr name="fluentuiPersistentBottomSheet_verticalItemSubTextAppearance" format="reference" />
         <!--header text style-->
-        <attr name="headerTextAppearance" format="reference" />
+        <attr name="fluentuiPersistentBottomSheet_headerTextAppearance" format="reference" />
     </declare-styleable>
 </resources>

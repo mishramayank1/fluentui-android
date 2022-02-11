@@ -4,7 +4,7 @@
   ~ Licensed under the MIT License.
   -->
 <resources>
-    <declare-styleable name="DrawerView">
-        <attr name="cornerRadius" format="dimension"/>
+    <declare-styleable name="FluentUIDrawerView">
+        <attr name="fluentuiDrawerView_cornerRadius" format="dimension"/>
     </declare-styleable>
 </resources>
