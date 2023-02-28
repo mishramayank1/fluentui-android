@@ -9,6 +9,7 @@ import com.microsoft.fluentuidemo.demos.*
 import java.util.*
 import kotlin.reflect.KClass
 
+const val COMPOSE_DEMO = "Compose Demo"
 const val V2AVATAR = "V2 Avatar"
 const val V2AVATAR_CAROUSEL = "V2 Avatar Carousel"
 const val V2AVATAR_GROUP = "V2 Avatar Group"
@@ -53,6 +54,7 @@ const val TOOLTIP = "Tooltip"
 const val TYPOGRAPHY = "Typography"
 
 val DEMOS = arrayListOf(
+    Demo(COMPOSE_DEMO, ComposeDemoActivity::class),
     Demo(V2APP_BAR_LAYOUT, V2AppBarLayoutActivity::class),
     Demo(V2AVATAR, V2AvatarActivity::class),
     Demo(V2AVATAR_CAROUSEL, V2AvatarCarouselActivity::class),
