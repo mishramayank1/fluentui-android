@@ -91,7 +91,7 @@ class Tooltip {
 
         popupWindow = PopupWindow(context).apply {
             isClippingEnabled = true
-            isFocusable = true
+            isFocusable = context.isAccessibilityEnabled
             isOutsideTouchable = true
             width = context.displaySize.x
             height = context.displaySize.y
@@ -108,6 +108,11 @@ class Tooltip {
         arrowDownView.visibility = View.GONE
         arrowLeftView.visibility = View.GONE
         arrowRightView.visibility = View.GONE
+    }
+
+    fun setFocusable(focusable: Boolean = false): Tooltip {
+        popupWindow.isFocusable = focusable
+        return this
     }
 
     /**
@@ -163,7 +168,11 @@ class Tooltip {
 
         popupWindow.width = contentWidth
         popupWindow.height = contentHeight
-        anchor.post { popupWindow.showAtLocation(anchor, Gravity.NO_GRAVITY, positionX, positionY) }
+        anchor.post {
+            if (anchor.isAttachedToWindow) {
+                popupWindow.showAtLocation(anchor, Gravity.NO_GRAVITY, positionX, positionY)
+            }
+        }
 
         if (config.touchDismissLocation == TouchDismissLocation.INSIDE) {
             // If focusable is true, outside touchable cannot become denied.
@@ -181,8 +190,9 @@ class Tooltip {
     }
 
     fun setCustomBackgroundColor(@ColorInt color: Int) {
-        tooltipBackGround.background = null
-        tooltipBackGround.setBackgroundColor(color)
+        var drawable = tooltipBackGround.background.constantState?.newDrawable()?.mutate()
+        drawable?.setTint(color)
+        tooltipBackGround.background = drawable
         ImageViewCompat.setImageTintList(arrowUpView, ColorStateList.valueOf(color))
         ImageViewCompat.setImageTintList(arrowDownView, ColorStateList.valueOf(color))
         ImageViewCompat.setImageTintList(arrowLeftView, ColorStateList.valueOf(color))

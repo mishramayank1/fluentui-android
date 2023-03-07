@@ -1,0 +1,8 @@
+Release Version 0.1.21:
+
+What's New:
+
+
+Fluent VCurrent:
+    Fix/Enhancement:
+        1) Fix CCB's Long Click Listener

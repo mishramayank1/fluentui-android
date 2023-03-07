@@ -1,0 +1,24 @@
+on: workflow_dispatch
+
+jobs:
+  Localize:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v3
+    - shell: bash
+      name: Localize
+      env:
+        TDBUILD_TEAM_ID: ${{ secrets.TDBUILD_TEAM_ID }}
+        TDBUILD_AAD_APPLICATION_CLIENT_ID: ${{ secrets.TDBUILD_AAD_APPLICATION_CLIENT_ID }}
+        TDBUILD_AAD_APPLICATION_CLIENT_SECRET: ${{ secrets.TDBUILD_AAD_APPLICATION_CLIENT_SECRET }}
+      run: ./localize.sh
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v3.5.0
+      with:
+        commit-message: Latest localized resource files from Touchdown Build
+        title: '[Localization] Localized Resource Files'
+        body: 'Latest localized resource files from Touchdown Build'
+        branch: tdbuild
+        labels: Automated PR
+        branch-suffix: timestamp

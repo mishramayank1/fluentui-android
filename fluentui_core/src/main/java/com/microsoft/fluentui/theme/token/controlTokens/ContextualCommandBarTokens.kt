@@ -5,6 +5,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.microsoft.fluentui.theme.FluentTheme.aliasTokens
@@ -13,38 +14,35 @@ import com.microsoft.fluentui.theme.ThemeMode
 import com.microsoft.fluentui.theme.token.*
 import kotlinx.parcelize.Parcelize
 
+class ContextualCommandBarInfo : ControlInfo
 
 @Parcelize
 open class ContextualCommandBarTokens : ControlToken, Parcelable {
 
-    companion object {
-        const val Type: String = "ContextualCommandBar"
-    }
-
     @Composable
-    open fun actionButtonBackgroundColor(): Color {
+    open fun actionButtonBackgroundColor(contextualCommandBarInfo: ContextualCommandBarInfo): Color {
         return aliasTokens.neutralBackgroundColor[AliasTokens.NeutralBackgroundColorTokens.Background2].value(
             themeMode = themeMode
         )
     }
 
     @Composable
-    open fun actionButtonIconColor(): Color {
+    open fun actionButtonIconColor(contextualCommandBarInfo: ContextualCommandBarInfo): Color {
         return aliasTokens.neutralForegroundColor[AliasTokens.NeutralForegroundColorTokens.Foreground1].value(
             themeMode = themeMode
         )
     }
 
     @Composable
-    open fun actionButtonIconPadding(): PaddingValues {
+    open fun actionButtonIconPadding(contextualCommandBarInfo: ContextualCommandBarInfo): PaddingValues {
         return PaddingValues(
-            horizontal = GlobalTokens.spacing(GlobalTokens.SpacingTokens.Small),
-            vertical = GlobalTokens.spacing(GlobalTokens.SpacingTokens.Medium)
+            horizontal = GlobalTokens.size(GlobalTokens.SizeTokens.Size120),
+            vertical = GlobalTokens.size(GlobalTokens.SizeTokens.Size160)
         )
     }
 
     @Composable
-    open fun actionButtonGradient(): List<Color> {
+    open fun actionButtonGradient(contextualCommandBarInfo: ContextualCommandBarInfo): List<Color> {
         return listOf(
             aliasTokens.neutralBackgroundColor[AliasTokens.NeutralBackgroundColorTokens.Background2].value(
                 themeMode = themeMode
@@ -55,74 +53,74 @@ open class ContextualCommandBarTokens : ControlToken, Parcelable {
         )
     }
 
-    open fun actionButtonGradientWidth(): Dp {
+    open fun actionButtonGradientWidth(contextualCommandBarInfo: ContextualCommandBarInfo): Dp {
         return 16.dp
     }
 
     @Composable
-    open fun contextualCommandBarBackgroundColor(): Color {
+    open fun contextualCommandBarBackgroundColor(contextualCommandBarInfo: ContextualCommandBarInfo): Color {
         return aliasTokens.neutralBackgroundColor[AliasTokens.NeutralBackgroundColorTokens.Background2].value(
             themeMode = themeMode
         )
     }
 
     @Composable
-    open fun itemBorderRadius(): Dp {
-        return GlobalTokens.borderRadius(GlobalTokens.BorderRadiusTokens.None)
+    open fun itemBorderRadius(contextualCommandBarInfo: ContextualCommandBarInfo): Dp {
+        return GlobalTokens.cornerRadius(GlobalTokens.CornerRadiusTokens.CornerRadiusNone)
     }
 
     @Composable
-    open fun groupBorderRadius(): Dp {
-        return GlobalTokens.borderRadius(GlobalTokens.BorderRadiusTokens.XLarge)
+    open fun groupBorderRadius(contextualCommandBarInfo: ContextualCommandBarInfo): Dp {
+        return GlobalTokens.cornerRadius(GlobalTokens.CornerRadiusTokens.CornerRadius120)
     }
 
     @Composable
-    open fun buttonSpacing(): Dp {
-        return GlobalTokens.spacing(GlobalTokens.SpacingTokens.XXXSmall)
+    open fun buttonSpacing(contextualCommandBarInfo: ContextualCommandBarInfo): Dp {
+        return GlobalTokens.size(GlobalTokens.SizeTokens.Size20)
     }
 
     @Composable
-    open fun buttonPadding(): Dp {
+    open fun buttonPadding(contextualCommandBarInfo: ContextualCommandBarInfo): Dp {
         return 8.dp
     }
 
     @Composable
-    open fun buttonMinWidth(): Dp {
+    open fun buttonMinWidth(contextualCommandBarInfo: ContextualCommandBarInfo): Dp {
         return 44.dp
     }
 
     @Composable
-    open fun groupSpacing(): Dp {
-        return GlobalTokens.spacing(GlobalTokens.SpacingTokens.Medium)
+    open fun groupSpacing(contextualCommandBarInfo: ContextualCommandBarInfo): Dp {
+        return GlobalTokens.size(GlobalTokens.SizeTokens.Size160)
     }
 
     @Composable
-    open fun iconSize(): IconSize {
-        return GlobalTokens.iconSize(GlobalTokens.IconSizeTokens.Medium)
+    open fun iconSize(contextualCommandBarInfo: ContextualCommandBarInfo): Dp {
+        return GlobalTokens.iconSize(GlobalTokens.IconSizeTokens.IconSize240)
     }
 
     @Composable
-    open fun iconVerticalPadding(): Dp {
-        return GlobalTokens.spacing(GlobalTokens.SpacingTokens.XSmall)
+    open fun iconVerticalPadding(contextualCommandBarInfo: ContextualCommandBarInfo): Dp {
+        return GlobalTokens.size(GlobalTokens.SizeTokens.Size80)
     }
 
     @Composable
-    open fun textSize(): FontInfo {
+    open fun typography(contextualCommandBarInfo: ContextualCommandBarInfo): TextStyle {
         return aliasTokens.typography[AliasTokens.TypographyTokens.Body2Strong]
     }
 
     @Composable
-    open fun itemIconHorizontalPadding(): Dp {
+    open fun itemIconHorizontalPadding(contextualCommandBarInfo: ContextualCommandBarInfo): Dp {
         return 10.dp
     }
 
     @Composable
-    open fun groupIconHorizontalPadding(): Dp {
+    open fun groupIconHorizontalPadding(contextualCommandBarInfo: ContextualCommandBarInfo): Dp {
         return 12.dp
     }
 
     @Composable
-    open fun buttonBackgroundColor(): StateColor {
+    open fun buttonBackgroundColor(contextualCommandBarInfo: ContextualCommandBarInfo): StateColor {
         return StateColor(
             rest = aliasTokens.neutralBackgroundColor[AliasTokens.NeutralBackgroundColorTokens.Background5].value(
                 themeMode = themeMode
@@ -134,7 +132,7 @@ open class ContextualCommandBarTokens : ControlToken, Parcelable {
                 themeMode = themeMode
             ),
             selected = FluentColor(
-                light = aliasTokens.brandBackgroundColor[AliasTokens.BrandBackgroundColorTokens.BrandBackground4].value(
+                light = aliasTokens.brandBackgroundColor[AliasTokens.BrandBackgroundColorTokens.BrandBackgroundTint].value(
                     themeMode = ThemeMode.Light
                 ),
                 dark = aliasTokens.neutralBackgroundColor[AliasTokens.NeutralBackgroundColorTokens.Background5Selected].value(
@@ -142,7 +140,7 @@ open class ContextualCommandBarTokens : ControlToken, Parcelable {
                 )
             ).value(themeMode = themeMode),
             selectedFocused = FluentColor(
-                light = aliasTokens.brandBackgroundColor[AliasTokens.BrandBackgroundColorTokens.BrandBackground4].value(
+                light = aliasTokens.brandBackgroundColor[AliasTokens.BrandBackgroundColorTokens.BrandBackgroundTint].value(
                     themeMode = ThemeMode.Light
                 ),
                 dark = aliasTokens.neutralBackgroundColor[AliasTokens.NeutralBackgroundColorTokens.Background5Selected].value(
@@ -156,7 +154,7 @@ open class ContextualCommandBarTokens : ControlToken, Parcelable {
     }
 
     @Composable
-    open fun iconColor(): StateColor {
+    open fun iconColor(contextualCommandBarInfo: ContextualCommandBarInfo): StateColor {
         return StateColor(
             rest = aliasTokens.neutralForegroundColor[AliasTokens.NeutralForegroundColorTokens.Foreground1].value(
                 themeMode = themeMode
@@ -168,7 +166,7 @@ open class ContextualCommandBarTokens : ControlToken, Parcelable {
                 themeMode = themeMode
             ),
             selected = FluentColor(
-                light = aliasTokens.brandForegroundColor[AliasTokens.BrandForegroundColorTokens.BrandForeground4].value(
+                light = aliasTokens.brandForegroundColor[AliasTokens.BrandForegroundColorTokens.BrandForegroundTint].value(
                     themeMode = ThemeMode.Light
                 ),
                 dark = aliasTokens.neutralForegroundColor[AliasTokens.NeutralForegroundColorTokens.Foreground1].value(
@@ -178,7 +176,7 @@ open class ContextualCommandBarTokens : ControlToken, Parcelable {
                 themeMode = themeMode
             ),
             selectedFocused = FluentColor(
-                light = aliasTokens.brandForegroundColor[AliasTokens.BrandForegroundColorTokens.BrandForeground4].value(
+                light = aliasTokens.brandForegroundColor[AliasTokens.BrandForegroundColorTokens.BrandForegroundTint].value(
                     themeMode = ThemeMode.Light
                 ),
                 dark = aliasTokens.neutralForegroundColor[AliasTokens.NeutralForegroundColorTokens.Foreground1].value(
@@ -194,7 +192,7 @@ open class ContextualCommandBarTokens : ControlToken, Parcelable {
     }
 
     @Composable
-    open fun focusStroke(): List<BorderStroke> {
+    open fun focusStroke(contextualCommandBarInfo: ContextualCommandBarInfo): List<BorderStroke> {
         return listOf(
             BorderStroke(
                 2.dp,
